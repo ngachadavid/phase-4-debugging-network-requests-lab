@@ -63,11 +63,14 @@ developing your own process.
 - Add a new toy when the toy form is submitted
 
   - How I debugged:
+  I resolved an internal server error by first observing it on the console, then investigating the Rails logs to determine its root cause, and finally fixing the specific line of code that was identified in the logs
 
 - Update the number of likes for a toy
 
   - How I debugged:
+  I found a SyntaxError on the console because the JSON input ended unexpectedly. To locate the error source, I checked the Networks tab and saw that there was no Content even though the status was 204. The Rails server terminal displayed the same status, meaning that nothing was being rendered. To solve this, I added a render statement to the update method
 
 - Donate a toy to Goodwill (and delete it from our database)
 
   - How I debugged:
+  "I encountered a 'DELETE 404 not found' error message which indicated that the route was not defined. To address this issue, I added ':destroy' to the routes in the 'config/routes.rb' file
